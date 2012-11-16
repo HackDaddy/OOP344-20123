@@ -28,6 +28,7 @@ int main(){
   }
 
   for(i=1000;i<5000;i+=1000){
+//    AT.push(Account(double(i)));
     AT.push(i);
   }
   while(!ST.isEmpty()){

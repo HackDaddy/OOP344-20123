@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+
+
 template <class T>
 class Stack;
 
@@ -15,7 +17,10 @@ class Node{
   friend class Stack<T>;
 };
 
-
+// add the template signature to all Class names excpet:
+// The name of the class comming right after the template keyword
+// The name of the constrtor (at definition)
+// the name of the destructor (at defintion0
 template <class T>
 class Stack{
   Node<T>* _top;
