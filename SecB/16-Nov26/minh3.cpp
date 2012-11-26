@@ -12,7 +12,7 @@ public:
     return data;
   }
 };
-class B:virtual public A{
+class B: public A{
 private:
   int data;
 public: 
@@ -25,7 +25,7 @@ public:
     return data;
   }
 };
-class C:virtual public A{
+class C: public A{
 private:
   int data;
 public: 
@@ -56,14 +56,5 @@ public:
 int main(){
   D d(50);
   d.print();
-  cout<<"**************"<<endl;
-  d.B::A::print();
-  d.C::A::print();
-  A(B(d)).print();
-  A(C(d)).print();
-  cout<<"**************"<<endl;
-  d.A::print();
-  A(d).print();
-
   return 0;
 }
