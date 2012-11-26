@@ -3,5 +3,7 @@
 *.user
 *.suo
 *.opensdf
+*.bak
+*.bin
 Debug/
 ipch/
