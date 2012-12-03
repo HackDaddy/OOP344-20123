@@ -1,6 +1,12 @@
 #include <cstdio>
 #include <cstdarg>
 using namespace std;
+void miniprint(char *format, ...);
+
+int main(){
+  miniprint("here is the main! %d, %s  and %X", 100, "testing", 1234);
+  return 0;
+}
 
 void miniprint(char *format, ...){
   va_list
@@ -33,7 +39,7 @@ void miniprint(char *format, ...){
       }
     }
     else{
-      putchar(*format);
+      putchar(*format++);
     }
   }
   va_end(ap);
