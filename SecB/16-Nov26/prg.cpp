@@ -1,69 +1,45 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
-class A{
-private:
-  int data;
-public: 
-  A(int data = -1){  // defaults the A with -1
-    this->data = data;
+class Employee{
+  char _name[15];
+  char _lastname[30];
+  int _empno;
+  double _salary;
+public:
+  Employee(const char* name="", const char* lastname="", int empno=0, double salary=0.0){
+     set(name, lastname, empno, salary);
   }
-  int print(){
-    cout<<"A: "<<data<<endl;
-    return data;
+  bool operator==(int empno){
+    return _empno == empno;
   }
-};
-class B:virtual public A{
-private:
-  int data;
-public: 
-  B(int data){
-    this->data = data;
+  bool operator==(Employee& E){
+    return _empno == E._empno;
   }
-  int print(){
-    A::print();
-    cout<<"B: "<<data<<endl;
-    return data;
+  void set(const char* name="", const char* lastname="", int empno=0, double salary=0.0){
+    strcpy(_name, name);
+    strcpy(_lastname, lastname);
+    _empno = empno;
+    _salary = salary;
   }
-};
-class C:virtual public A{
-private:
-  int data;
-public: 
-  C(int data = 10):A(data/2){
-    this->data = data;
+  ostream& print(ostream& OS)const{
+    return OS<<"Name: "<<_name<<" "<<_lastname<<endl<<"EmpNo: "<<_empno
+      <<", Salary: "<<_salary;
   }
-  int print(){
-    A::print();
-    cout<<"C: "<<data<<endl;
-    return data;
-  }
-};
-class D:public B, public C{
-private:
-  int data;
-public: 
-  D(int data):B(data/2){
-    this->data = data;
-  }
-  int print(){
-    B::print();
-    C::print();
-    cout<<"D: "<<data<<endl;
-    return data;
+  virtual ~Employee(){
+    //print(cout)<<"is dead!!!!"<<endl;
   }
 };
 
-int main(){
-  D d(50);
-  d.print();
-  cout<<"**************"<<endl;
-  d.B::A::print();
-  d.C::A::print();
-  A(B(d)).print();
-  A(C(d)).print();
-  cout<<"**************"<<endl;
-  d.A::print();
-  A(d).print();
-
-  return 0;
+bool find(fstream& file,unsigned int& loc, Employee& F){
+  Employee E;
+  bool found = false;
+  while(!file.fail()){
+    file.read((char*)&E, sizeof(Employee));
+    if(E == F){
+      loc = (unsigned int)file.tellg() - sizeof(E);
+      found = true;
+    }
+  }
+  return found;
 }

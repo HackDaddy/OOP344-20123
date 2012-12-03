@@ -2,7 +2,7 @@
 #include <cstdarg>
 using namespace std;
 
-void miniprint(const char *format, ...){
+void miniprint(char *format, ...){
   va_list
     ap;
   va_start(ap, format);
@@ -38,10 +38,3 @@ void miniprint(const char *format, ...){
   }
   va_end(ap);
 }
-
-int main(){
-  miniprint("hello I am %s and I make %f Dollars a year", "Homer", 12345.67);
-  return 0;
-}
-
-
