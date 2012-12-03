@@ -33,7 +33,7 @@ void miniprint(const char *format, ...){
       }
     }
     else{
-      putchar(*format);
+      putchar(*format++);
     }
   }
   va_end(ap);
