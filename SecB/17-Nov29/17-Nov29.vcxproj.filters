@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="prg.cpp">
+    <ClCompile Include="varargs2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
