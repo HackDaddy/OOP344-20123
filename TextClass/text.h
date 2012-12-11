@@ -3,7 +3,7 @@
 // a class to convert text string to arrays of string for each line of the text and back
 //
 // Fardad Soleimanloo, Chris Szalwinski
-// Nov 1, 2012
+// Mar 19, 2012
 // Version 0.9
 #ifndef __CIO_TEXT_H__
 #define __CIO_TEXT_H__
@@ -54,7 +54,7 @@ namespace cio{
     void insertAt(unsigned int index);
     void insertAndBreakAt(unsigned int index, unsigned int charIndex);
     void expand(unsigned int newsize);
-    unsigned int size()const;
+    unsigned int size()const; 
     unsigned int textLines();
     unsigned int strlen()const; // number of characters in text
     void destruct();
