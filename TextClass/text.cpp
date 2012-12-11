@@ -1,15 +1,15 @@
 // Console UI Core Classes
 // text.cpp
-// a class to convert text string to arrays of strings for each line of the text and back
+// a class to convert text string to arrays of string for each line of the text and back
 //
 // Fardad Soleimanloo, Chris Szalwinski
-// Nov 1, 2012
-// Version 0.9
+// Dec 12, 2012
+// Version 0.91
 
 #include "text.h"
 namespace cio{
 
-  // returns the lentgth of a string but
+  // returns the lentgth of a string but 
   unsigned int Line::strlen(const char* str){
     unsigned int len = 0;
     while(*str && *str != '\n'){
@@ -102,7 +102,7 @@ namespace cio{
   Line::operator char*(){
     return _data;
   }
-
+ 
   unsigned int Line::size()const{
     return _size;
   }
@@ -131,7 +131,7 @@ namespace cio{
     }
   }
   void Text::importString(const char* text){
-    int i = 0;
+    int i = 0; 
     int lines = 0;
     bool hasText = false;
     if(_data == (Line**)0){
@@ -223,10 +223,10 @@ namespace cio{
     if(_data[index] == (Line*)0){
       _data[index] = new Line;
     }
-    if(index > _textlines -1){
+    if(index+1 > _textlines){
       _textlines = index + 1;
     }
-    return *_data[index];
+    return *_data[index];    
   }
   bool Text::remove(unsigned int index){
     bool res = false;

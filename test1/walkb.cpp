@@ -2,14 +2,14 @@
 using namespace std;
 #define sum(x,y) x+y
 void W1(){
-  int i = 5;
-  int j = 6;
+  int i = 4;
+  int j = 5;
   int k;
-  k = sum(i,j)*7; 
+  k = sum(i,j)*6; 
   cout<<k<<endl;
 }
 void W2(){
-  int ar[13] = {0,1,0,20,0,56,4,0,6,0,5,0,0};
+  int ar[13] = {0,1,0,0,0,56,4,0,6,0,5,0,0};
   int num = 0;
   int i;
   for(i = 0;i<10; i++)
@@ -18,21 +18,21 @@ void W2(){
 }
 void W3(){
   int ar[10] = {100,200,300,400,500,600,700,800,900,1000};
-  int* p = ar + 3;
-  cout<<*(ar+3)<<endl;
+  int* p = ar + 4;
+  cout<<*(ar+4)<<endl;
   cout<<p[5]<<endl;
   
 }
 void W4(){
-  short b[4];
-  short a[2][3];
+  short b[5];
+  short a[3][4];
   cout<<sizeof(b)<<endl;
   cout<<sizeof(b[0])<<endl;
   cout<<sizeof(a[0])<<endl;
 }
 int count(){
   static int i = 0;
-  return i+=2;
+  return i+=3;
 }
 void W5(){
   for(int i=0;i<3;i++)
@@ -41,7 +41,7 @@ void W5(){
 }
 void W6(){
   int a[10] = {1,2,3,4,5,6,7,8,9,10};
-  int (*ma)[4] = (int(*)[4])a;
+  int (*ma)[3] = (int(*)[3])a;
   cout<<ma[1][1]<<endl;
 }
 void cp(void* des, void* src, unsigned s){
@@ -53,12 +53,12 @@ void cp(void* des, void* src, unsigned s){
  
 void W7(){
   char s[5] = "";
-  cp(s,"abcd", 4);
+  cp(s,"efgh", 4);
   cout<<s<<endl;
 }
 enum val{aa, bb, cc, dd, ee, ff};
 void W8(){
-  cout<<ee<<endl;
+  cout<<dd<<endl;
 }
 void add(int a, int b){
   cout<<a+b<<endl;
@@ -71,7 +71,7 @@ void dv(int a, int b){
 }
 void W9(){
   void (*fptr[3])(int, int) = {dv,add, mul};
-  for(int i=0;i<3;i++){
+  for(int i=2;i>=0;i--){
     fptr[i](10, 2);
   }
 }
@@ -95,8 +95,8 @@ public:
   void Act(){cout<<"D2";Bs::print();};
 };
 void W10(){
-  D1 *d = new D1(10);
-  Bs *b = new D2(20);
+  D1 *d = new D1(40);
+  Bs *b = new D2(60);
   d->Act();
   b->Act();
   delete d; delete b;
